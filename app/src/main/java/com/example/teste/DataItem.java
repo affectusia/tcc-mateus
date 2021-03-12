@@ -4,15 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataItem {
-    int resIdThumbnail;
-    String nome;
+    private int resIdThumbnail;
+    private String nome;
 
     public DataItem(int resIdThumbnail, String nome) {
         this.resIdThumbnail = resIdThumbnail;
         this.nome = nome;
     }
 
-    //Métodos dos Acatares
+    public int getResourceId(){
+        return this.resIdThumbnail;
+    }
+
+    //Métodos dos Avatares
     public static List<DataItem> getAvatar (){
         List<DataItem> lstData = new ArrayList<>(  );
         lstData.add( new DataItem(R.drawable.cabeca_1, "avatar1"));

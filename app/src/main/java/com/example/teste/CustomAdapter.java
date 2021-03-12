@@ -47,7 +47,7 @@ public class CustomAdapter extends BaseAdapter {
         @SuppressLint("ViewHolder") View view = LayoutInflater.from( context ).inflate( R.layout.itemrow, parent, false);
         ImageView img = view.findViewById( R.id.imagemIndividual );
         DataItem dataItem = lsData.get( position );
-        img.setImageResource(dataItem.resIdThumbnail);
+        img.setImageResource(dataItem.getResourceId());
         return view;
     }
 }
