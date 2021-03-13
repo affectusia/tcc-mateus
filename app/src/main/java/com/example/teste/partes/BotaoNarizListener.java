@@ -8,8 +8,8 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.example.teste.CustomAdapter;
-import com.example.teste.DataItem;
+import com.example.teste.ParteAvatarAdapter;
+import com.example.teste.ParteAvatar;
 import com.example.teste.R;
 
 public class BotaoNarizListener implements View.OnClickListener{
@@ -27,27 +27,16 @@ public class BotaoNarizListener implements View.OnClickListener{
         View convertView = inflaterPrincipal.inflate( R.layout.custompopup_mouth,null );
         alertDialogPincipal.setView( convertView );
         ListView lvPrincipal = convertView.findViewById( R.id.listaImagens );
-        lvPrincipal.setAdapter( new CustomAdapter(context, DataItem.getNarizPIcones() ) );
+        lvPrincipal.setAdapter( new ParteAvatarAdapter(context, ParteAvatar.getNarizPIcones() ) );
         final AlertDialog showPrincipal = alertDialogPincipal.show();
         lvPrincipal.setOnItemClickListener( new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ParteAvatar parteAvatar = (ParteAvatar) parent.getItemAtPosition(position);
                 ImageView imageN = context.findViewById(R.id.imgNeriz);
-                switch (position){
-                    case 0:
-                        imageN.setImageResource( R.drawable.nariz_1 );
-                        showPrincipal.dismiss();
-                        break;
-                    case 1:
-                        imageN.setImageResource( R.drawable.nariz_2 );
-                        showPrincipal.dismiss();
-                        break;
-                    case 2:
-                        imageN.setImageResource( R.drawable.nariz_3 );
-                        showPrincipal.dismiss();
-                        break;
-                }
+                imageN.setImageResource(parteAvatar.getImagem());
+                showPrincipal.dismiss();
             }
-        } );
+        });
     }
 }

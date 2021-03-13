@@ -8,8 +8,8 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.example.teste.CustomAdapter;
-import com.example.teste.DataItem;
+import com.example.teste.ParteAvatarAdapter;
+import com.example.teste.ParteAvatar;
 import com.example.teste.R;
 
 public class BotaoBocaListener implements View.OnClickListener {
@@ -27,33 +27,14 @@ public class BotaoBocaListener implements View.OnClickListener {
         View convertView = inflater.inflate( R.layout.custompopup_mouth,null );
         alertDialog.setView(convertView);
         final ListView lv = convertView.findViewById( R.id.listaImagens );
-        lv.setAdapter( new CustomAdapter( context, DataItem.getBocaIcones() ) );
+        lv.setAdapter( new ParteAvatarAdapter( context, ParteAvatar.getBocaIcones() ) );
         final AlertDialog show = alertDialog.show();
         lv.setOnItemClickListener( new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ParteAvatar parteAvatar = (ParteAvatar) parent.getItemAtPosition(position);
                 ImageView image = context.findViewById(R.id.imgBoca);
-                switch (position){
-                    case 0:
-                        image.setImageResource( R.drawable.boca_1 );
-                        break;
-                    case 1:
-                        image.setImageResource( R.drawable.boca_2 );
-                        break;
-                    case 2:
-                        image.setImageResource( R.drawable.boca_3 );
-                        break;
-                    case 3:
-                        image.setImageResource( R.drawable.boca_4 );
-                        break;
-                    case 4:
-                        image.setImageResource( R.drawable.boca_5 );
-                         break;
-                    case 5:
-                        image.setImageResource( R.drawable.boca_6 );
-                        break;
-                }
-
+                image.setImageResource(parteAvatar.getImagem());
                 show.dismiss();
             }
         } );

@@ -8,8 +8,8 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.example.teste.CustomAdapter;
-import com.example.teste.DataItem;
+import com.example.teste.ParteAvatarAdapter;
+import com.example.teste.ParteAvatar;
 import com.example.teste.R;
 
 import java.util.List;
@@ -29,26 +29,26 @@ public class BotaoCabeloListener implements View.OnClickListener{
         View convertView = inflaterPrincipal.inflate(R.layout.custompopup_mouth, null);
         alertDialogPincipal.setView( convertView );
         ListView lvPrincipal = convertView.findViewById( R.id.listaImagens );
-        lvPrincipal.setAdapter( new CustomAdapter( context, DataItem.getCabeloPIcones() ) );
+        lvPrincipal.setAdapter( new ParteAvatarAdapter( context, ParteAvatar.getCabeloPIcones() ) );
         final AlertDialog showPrincipal = alertDialogPincipal.show();
         lvPrincipal.setOnItemClickListener( new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case 0:
-                        mostrarSubOpcoes(DataItem.getCabelo1Icones());
+                        mostrarSubOpcoes(ParteAvatar.getCabelo1Icones());
                         break;
                     case 1:
-                        mostrarSubOpcoes(DataItem.getCabelo2Icones());
+                        mostrarSubOpcoes(ParteAvatar.getCabelo2Icones());
                         break;
                     case 2:
-                        mostrarSubOpcoes(DataItem.getCabelo3Icones());
+                        mostrarSubOpcoes(ParteAvatar.getCabelo3Icones());
                         break;
                     case 3:
-                        mostrarSubOpcoes(DataItem.getCabelo4Icones());
+                        mostrarSubOpcoes(ParteAvatar.getCabelo4Icones());
                         break;
                     case 4:
-                        mostrarSubOpcoes(DataItem.getCabelo5Icones());
+                        mostrarSubOpcoes(ParteAvatar.getCabelo5Icones());
                         break;
                 }
 
@@ -57,21 +57,21 @@ public class BotaoCabeloListener implements View.OnClickListener{
         });
     }
 
-    private void mostrarSubOpcoes(List<DataItem> opcoes){
+    private void mostrarSubOpcoes(List<ParteAvatar> opcoes){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
         LayoutInflater layoutInflater = context.getLayoutInflater();
         View view = layoutInflater.inflate(R.layout.custompopup_mouth, null);
         alertDialogBuilder.setView(view);
         ListView layoutOpcoes = view.findViewById(R.id.listaImagens );
-        layoutOpcoes.setAdapter(new CustomAdapter(context, opcoes));
+        layoutOpcoes.setAdapter(new ParteAvatarAdapter(context, opcoes));
         final AlertDialog alertDialog = alertDialogBuilder.show();
         final ImageView imageViewCabelo = context.findViewById(R.id.imgCabelo);
         layoutOpcoes.setOnItemClickListener( new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                DataItem dataItem = (DataItem) parent.getItemAtPosition(position);
-                imageViewCabelo.setImageResource(dataItem.getResourceId());
+                ParteAvatar parteAvatar = (ParteAvatar) parent.getItemAtPosition(position);
+                imageViewCabelo.setImageResource(parteAvatar.getImagem());
                 alertDialog.dismiss();
             }
         } );

@@ -8,8 +8,8 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.example.teste.CustomAdapter;
-import com.example.teste.DataItem;
+import com.example.teste.ParteAvatarAdapter;
+import com.example.teste.ParteAvatar;
 import com.example.teste.R;
 
 import java.util.List;
@@ -29,7 +29,7 @@ public class BotaoOlhosListener implements View.OnClickListener{
         View convertView = inflaterPrincipal.inflate( R.layout.custompopup_mouth,null );
         alertDialogPincipal.setView( convertView );
         ListView lvPrincipal = convertView.findViewById( R.id.listaImagens );
-        lvPrincipal.setAdapter( new CustomAdapter(context, DataItem.getOlhosPIcones() ) );
+        lvPrincipal.setAdapter( new ParteAvatarAdapter(context, ParteAvatar.getOlhosPIcones() ) );
         final AlertDialog showPrincipal = alertDialogPincipal.show();
         lvPrincipal.setOnItemClickListener( new AdapterView.OnItemClickListener() {
             @Override
@@ -37,22 +37,22 @@ public class BotaoOlhosListener implements View.OnClickListener{
                 ImageView imagePrincipal = context.findViewById(R.id.imgOlhos);
                 switch (position){
                     case 0:
-                        mostrarSubOpcoes(DataItem.getOlhos1Icones());
+                        mostrarSubOpcoes(ParteAvatar.getOlhos1Icones());
                         break;
                     case 1:
                         imagePrincipal.setImageResource(R.drawable.olhos_2);
                         break;
                     case 2:
-                        mostrarSubOpcoes(DataItem.getOlhos3Icones());
+                        mostrarSubOpcoes(ParteAvatar.getOlhos3Icones());
                         break;
                     case 3:
-                        mostrarSubOpcoes(DataItem.getOlhos4Icones());
+                        mostrarSubOpcoes(ParteAvatar.getOlhos4Icones());
                         break;
                     case 4:
-                        mostrarSubOpcoes(DataItem.getOlhos5Icones());
+                        mostrarSubOpcoes(ParteAvatar.getOlhos5Icones());
                         break;
                     case 5:
-                        mostrarSubOpcoes(DataItem.getOlhos6Icones());
+                        mostrarSubOpcoes(ParteAvatar.getOlhos6Icones());
                         break;
                 }
 
@@ -61,21 +61,20 @@ public class BotaoOlhosListener implements View.OnClickListener{
         } );
     }
 
-    private void mostrarSubOpcoes(List<DataItem> opcoes){
+    private void mostrarSubOpcoes(List<ParteAvatar> opcoes){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
         LayoutInflater layoutInflater = context.getLayoutInflater();
         View view = layoutInflater.inflate(R.layout.custompopup_mouth, null);
         alertDialogBuilder.setView(view);
         ListView layoutOpcoes = view.findViewById(R.id.listaImagens );
-        layoutOpcoes.setAdapter(new CustomAdapter(context, opcoes));
+        layoutOpcoes.setAdapter(new ParteAvatarAdapter(context, opcoes));
         final AlertDialog alertDialog = alertDialogBuilder.show();
         final ImageView imageViewOlhos = context.findViewById(R.id.imgOlhos);
         layoutOpcoes.setOnItemClickListener( new AdapterView.OnItemClickListener() {
-
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                DataItem dataItem = (DataItem) parent.getItemAtPosition(position);
-                imageViewOlhos.setImageResource(dataItem.getResourceId());
+                ParteAvatar parteAvatar = (ParteAvatar) parent.getItemAtPosition(position);
+                imageViewOlhos.setImageResource(parteAvatar.getImagem());
                 alertDialog.dismiss();
             }
         } );

@@ -25,7 +25,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    List<DataItem> lstData;
+    List<ParteAvatar> lstData;
     Context context = this;
     private ListView listView;
 
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         View convertView = (View) inflater.inflate( R.layout.custompopup_mouth,null );
         alert.setView( convertView );
         final ListView lv = (ListView) convertView.findViewById( R.id.listaImagens );
-        lv.setAdapter( new CustomAdapter( MainActivity.this, DataItem.getAvatarIcones() ) );
+        lv.setAdapter( new ParteAvatarAdapter( MainActivity.this, ParteAvatar.getAvatarIcones() ) );
         final AlertDialog show = alert.show();
         lv.setOnItemClickListener( new AdapterView.OnItemClickListener() {
             @Override
