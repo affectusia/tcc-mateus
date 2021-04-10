@@ -216,7 +216,7 @@ public class EnviarActivity extends AppCompatActivity {
         read_msg_box = (TextView) findViewById( R.id.readMsg );
         writeMsg = (EditText) findViewById( R.id.writeMsg );
         connectionStatus = (TextView) findViewById( R.id.connectionStatus );
-        imageView = findViewById( R.id.verImagem );
+        imageView = findViewById( R.id.verImagemColega );
 
         wifiManager = (WifiManager) getApplicationContext().getSystemService( Context.WIFI_SERVICE );
 
@@ -271,12 +271,12 @@ public class EnviarActivity extends AppCompatActivity {
 
             if (wifiP2pInfo.groupFormed && wifiP2pInfo.isGroupOwner){
                 connectionStatus.setText( "Host" );
-                //Toast.makeText( getApplicationContext(), "Host", Toast.LENGTH_SHORT ).show();
+                Toast.makeText( getApplicationContext(), "Host", Toast.LENGTH_SHORT ).show();
                 serverClass = new ServerClass();
                 serverClass.start();
             } else if (wifiP2pInfo.groupFormed){
                 connectionStatus.setText( "Client" );
-                //Toast.makeText( getApplicationContext(), "Client", Toast.LENGTH_SHORT ).show();
+                Toast.makeText( getApplicationContext(), "Client", Toast.LENGTH_SHORT ).show();
                 clientClass = new ClientClass(groupOwnerAddress);
                 clientClass.start();
             }

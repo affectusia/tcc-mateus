@@ -19,6 +19,18 @@
         android:layout_marginTop="55dp"
         android:text="Wifi On"/> -->
 
+    <TextView
+        android:id="@+id/connectionStatus"
+        android:layout_width="138dp"
+        android:layout_height="46dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="318dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="832dp" />
+
     <Button
         android:id="@+id/discover"
         android:layout_width="wrap_content"
