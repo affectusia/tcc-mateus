@@ -53,14 +53,14 @@ public class MainActivity extends AppCompatActivity {
             }
         } );
 
-        Button btReceber  = findViewById( R.id.botaoReceber );
+        /*Button btReceber  = findViewById( R.id.botaoReceber );
         btReceber.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentReceber = new Intent( MainActivity.this, MainActivityProfessor.class );
                 startActivity( intentReceber );
             }
-        } );
+        } );*/
 
         //Escolher o avatar inicial
         final AlertDialog.Builder alert = new AlertDialog.Builder( MainActivity.this );

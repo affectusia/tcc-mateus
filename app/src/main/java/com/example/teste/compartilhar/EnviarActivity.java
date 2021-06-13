@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -75,7 +76,8 @@ public class EnviarActivity extends AppCompatActivity {
     ClientClass clientClass;
     SendReceive sendReceive;
 
-    Bitmap bitmap;
+    Bitmap bitmap, testeBitmap;
+    byte[] testeByte;
     ImageView imageView;
     String btm;
 
@@ -87,16 +89,12 @@ public class EnviarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enviarinterface);
         //this.setRequestedOrientation( ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE );
-        //ImageView imageView = findViewById( R.id.verImagem );
-        //imageView.setImageResource( R.drawable.boca_pq_alegre );
-
 
         Intent intent = getIntent();
         bitmap = intent.getParcelableExtra("BitmapImage");
 
-        ImageView imageViewMinha;
-        imageViewMinha = findViewById(R.id.verImagem);
-        imageViewMinha.setImageBitmap(bitmap);
+        //ImageView imageView = findViewById( R.id.verImagem );
+        //imageView.setImageBitmap(bitmap);
 
 
         initialWork();
@@ -216,11 +214,9 @@ public class EnviarActivity extends AppCompatActivity {
         read_msg_box = (TextView) findViewById( R.id.readMsg );
         writeMsg = (EditText) findViewById( R.id.writeMsg );
         connectionStatus = (TextView) findViewById( R.id.connectionStatus );
-        imageView = findViewById( R.id.verImagemColega );
+        imageView = findViewById( R.id.verImagem );
 
         wifiManager = (WifiManager) getApplicationContext().getSystemService( Context.WIFI_SERVICE );
-
-
 
         mManager = (WifiP2pManager) getSystemService( Context.WIFI_P2P_SERVICE );
         mChannel = mManager.initialize(this, getMainLooper(), null);
@@ -235,6 +231,8 @@ public class EnviarActivity extends AppCompatActivity {
 
         //imagembyte = encodeTobase64(bitmap);
         //imageView.setImageBitmap(decodeBase64(imagembyte));
+
+
     }
 
     WifiP2pManager.PeerListListener peerListListener = new WifiP2pManager.PeerListListener() {
@@ -379,11 +377,10 @@ public class EnviarActivity extends AppCompatActivity {
     }
 
     //bitmap para string
-    public static byte[] encodeTobase64(Bitmap image) {
-        ByteBuffer byteBuffer = ByteBuffer.allocate(image.getByteCount());
-        image.copyPixelsToBuffer(byteBuffer);
-        byteBuffer.rewind();
-        return byteBuffer.array();
+    public static byte[] encodeTobase64(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 70, stream);
+        return stream.toByteArray();
     }
 
     //String para bitmap
