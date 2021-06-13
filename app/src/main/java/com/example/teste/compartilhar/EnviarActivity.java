@@ -115,7 +115,8 @@ public class EnviarActivity extends AppCompatActivity {
 
                     //String tempMsg = new String(readBuff, 0, msg.arg1);
                     //read_msg_box.setText( tempMsg );
-                    imageView.setImageBitmap(decodeBase64(readBuff));
+                    ImageView imageViewReceber = findViewById(R.id.verImagemColega);
+                    imageViewReceber.setImageBitmap(decodeBase64(readBuff));
                     break;
             }
             return true;
@@ -229,8 +230,8 @@ public class EnviarActivity extends AppCompatActivity {
         mIntentFilter.addAction( WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION );
         mIntentFilter.addAction( WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION );
 
-        //imagembyte = encodeTobase64(bitmap);
-        //imageView.setImageBitmap(decodeBase64(imagembyte));
+        imagembyte = encodeTobase64(bitmap);
+        imageView.setImageBitmap(decodeBase64(imagembyte));
 
 
     }
