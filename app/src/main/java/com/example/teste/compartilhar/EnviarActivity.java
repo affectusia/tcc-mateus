@@ -93,8 +93,8 @@ public class EnviarActivity extends AppCompatActivity {
         Intent intent = getIntent();
         bitmap = intent.getParcelableExtra("BitmapImage");
 
-        //ImageView imageView = findViewById( R.id.verImagem );
-        //imageView.setImageBitmap(bitmap);
+        ImageView imageView = findViewById( R.id.verImagem );
+        imageView.setImageBitmap(bitmap);
 
 
         initialWork();
@@ -230,8 +230,9 @@ public class EnviarActivity extends AppCompatActivity {
         mIntentFilter.addAction( WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION );
         mIntentFilter.addAction( WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION );
 
-        imagembyte = encodeTobase64(bitmap);
-        imageView.setImageBitmap(decodeBase64(imagembyte));
+        //Teste de codificação e decodificação do bitmap antes de enviar
+        //imagembyte = encodeTobase64(bitmap);
+        //imageView.setImageBitmap(decodeBase64(imagembyte));
 
 
     }
