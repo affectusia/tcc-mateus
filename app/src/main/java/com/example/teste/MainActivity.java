@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Bitmap b = Screenshot.takescreenshotOfRootView( imageView );
-                btmap = scaleDownBitmap( b, 100, MainActivity.this );
-                imageView.setImageBitmap( btmap );
+                btmap = scaleDownBitmap( b, 300, MainActivity.this );
+                //imageView.setImageBitmap( btmap );
 
                 Intent intentEnviar = new Intent( MainActivity.this, EnviarActivity.class );
                 intentEnviar.putExtra( "BitmapImage", btmap );

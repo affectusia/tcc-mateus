@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".compartilhar.EnviarActivity"
-    android:background="@drawable/fundo">
+   >
 
     <!--
     <Button
@@ -27,19 +27,37 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="318dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginBottom="832dp" />
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="456dp"
+        android:layout_marginBottom="829dp" />
 
     <Button
         android:id="@+id/discover"
+        android:layout_width="89dp"
+        android:layout_height="107dp"
+        android:layout_above="@+id/peerListView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="251dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="261dp"
+        android:layout_marginBottom="469dp"
+        android:background="@drawable/play" />
+
+    <Button
+        android:id="@+id/home"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/onOff"
-        android:layout_alignBottom="@+id/onOff"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-1dp"
-        android:text="Discover" />
+        android:layout_height="85dp"
+        android:layout_above="@+id/peerListView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="513dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="490dp"
+        android:background="@drawable/home" />
 
     <ListView
         android:id="@+id/peerListView"
@@ -48,12 +66,11 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
+        android:layout_marginStart="-3dp"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="89dp"
-        android:background="@color/lightblue"
-        />
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="106dp"
+        android:background="@color/colorPrimary" />
 
     <TextView
         android:id="@+id/readMsg"
@@ -83,14 +100,14 @@
     <Button
         android:id="@+id/sendButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="86dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="256dp"
-        android:layout_marginEnd="257dp"
-        android:layout_marginBottom="18dp"
-        android:text="Send" />
+        android:layout_marginEnd="258dp"
+        android:layout_marginBottom="11dp"
+        android:background="@drawable/enviar_ok" />
 
     <ImageView
         android:id="@+id/verImagem"

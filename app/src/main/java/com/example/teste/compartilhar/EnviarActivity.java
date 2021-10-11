@@ -37,6 +37,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.teste.MainActivity;
 import com.example.teste.R;
 
 import java.io.ByteArrayOutputStream;
@@ -99,6 +100,15 @@ public class EnviarActivity extends AppCompatActivity {
 
         initialWork();
         exqListener();
+
+        Button btHome = findViewById(R.id.home);
+        btHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentHome = new Intent( EnviarActivity.this, MainActivity.class );
+                startActivity( intentHome );
+            }
+        });
     }
 
 
